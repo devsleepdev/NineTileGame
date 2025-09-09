@@ -129,7 +129,18 @@ function moveRight()
 
 
 // Detech touches -----------------------------------------------------------
-document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
+// Prevent scrolling ===
+window.addEventListener("scroll", preventMotion, false);
+window.addEventListener("touchmove", preventMotion, false);
+
+function preventMotion(event)
+{
+    window.scrollTo(0, 0);
+    event.preventDefault();
+    event.stopPropagation();
+}
+// ===
+
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);
 
