@@ -129,6 +129,7 @@ function moveRight()
 
 
 // Detech touches -----------------------------------------------------------
+document.body.addEventListener('touchstart', function(e){ e.preventDefault(); });
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);
 
@@ -160,18 +161,18 @@ function handleTouchMove(evt) {
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
             /* right swipe */ 
-            moveRight()
+            moveLeft()
         } else {
             /* left swipe */
-            moveLeft()
+            moveRight()
         }                       
     } else {
         if ( yDiff > 0 ) {
             /* down swipe */ 
-            moveDown()
+            moveUp()
         } else { 
             /* up swipe */
-            moveUp()
+            moveDown()
         }                                                                 
     }
     /* reset values */
